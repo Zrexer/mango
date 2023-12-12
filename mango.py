@@ -16,9 +16,11 @@ import webbrowser
 try:
     from PIL import Image 
     import pytesseract
+    import wget
 except ImportError:
     subprocess.getoutput('pip install Pillow')
     subprocess.getoutput('pip install pytesseract')
+    subprocess.getoutput('pip install wget')
     subprocess.getoutput('cls || clear')
 
 osx = platform.system()
@@ -64,6 +66,11 @@ class colors:
     bold = '\033[1m'
     underline = '\033[4m'
     magenta = '\033[95m'
+
+url = 'https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-5.3.3.20231005.exe'
+subprocess.getoutput('mkdir core')
+wget.download(url, './core')
+
 
 def info(msg):
     return "[INFO] {}".format(msg)
