@@ -11,6 +11,7 @@ print("DEV:Host1let\n\n")
 import platform
 import subprocess
 import os 
+import webbrowser
 
 try:
     from PIL import Image 
@@ -91,8 +92,8 @@ def main(pathOfPyst):
 pathOfTesseract = None
 
 if osx == "Windows":
-    #print(info('Try to Download Tesseract ExE file'))
-    #webbrowser.open('https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-5.3.3.20231005.exe')
+    print(info('Please Clone or Download This Files: https://github.com/Zrexer/core'))
+    webbrowser.open('https://github.com/Zrexer/core')
     print("Please Download this and run exe file, after that go to your download path and there is a filename called ' tesseract.exe ' : copy paths of that and Enter path to this: ")
 
     pathOfTesseract = str(input('\nEnter Path of tesseract (Like Up ↑) > '))
@@ -109,6 +110,7 @@ if osx == "Windows":
             exit(err('File Does Not Exists, Try Again !'))
         
 else:
+    subprocess.getoutput("git clone https://github.com/Zrexer/core")
     pathOfTesseract = str(input('Enter Path of tesseract > '))
     
     if pathOfTesseract == '' or pathOfTesseract == " " or pathOfTesseract == None:
