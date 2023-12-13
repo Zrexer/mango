@@ -67,9 +67,10 @@ class colors:
     underline = '\033[4m'
     magenta = '\033[95m'
 
-url = 'https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-5.3.3.20231005.exe'
-subprocess.getoutput('mkdir core')
-wget.download(url, './core')
+def dl():
+    url = 'https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-5.3.3.20231005.exe'
+    subprocess.getoutput('mkdir core')
+    wget.download(url, './core')
 
 
 def info(msg):
@@ -101,6 +102,7 @@ pathOfTesseract = None
 if osx == "Windows":
     print(info('Please Clone or Download This Files: https://github.com/Zrexer/core'))
     webbrowser.open('https://github.com/Zrexer/core')
+    dl()
     print("Please Download this and run exe file, after that go to your download path and there is a filename called ' tesseract.exe ' : copy paths of that and Enter path to this: ")
 
     pathOfTesseract = str(input('\nEnter Path of tesseract (Like Up ↑) > '))
